@@ -3,39 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Famous vs. Picktrace — Harvest Reconciliation</title>
+<title>Famous vs. Picktrace — 8/24–8/28/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F5EFE2;
-    --card:#FFFDF8;
-    --card-line:#E6DBC5;
-    --ink:#2A261C;
-    --ink-soft:#736B58;
-    --ink-faint:#9A9179;
-    --green-deep:#33402C;
-    --green-deep-soft:#4A5A40;
-    --wine:#7A2E3D;
-    --wine-soft:#9C4356;
-
-    --matched:#3F6B41;      --matched-bg:#E4EFDF;
-    --minor:#9C7423;        --minor-bg:#F7ECD2;
-    --discrepancy:#9C3B44;  --discrepancy-bg:#F5E1DF;
-    --onlyfam:#A15A2E;      --onlyfam-bg:#F5E5D5;
-    --onlypick:#6B4E8C;     --onlypick-bg:#EBE3F2;
-
+    --bg:#F5EFE2; --card:#FFFDF8; --card-line:#E6DBC5;
+    --ink:#2A261C; --ink-soft:#736B58; --ink-faint:#9A9179;
+    --green-deep:#33402C; --green-deep-soft:#4A5A40;
+    --wine:#7A2E3D; --wine-soft:#9C4356;
+    --matched:#3F6B41; --matched-bg:#E4EFDF;
+    --minor:#9C7423; --minor-bg:#F7ECD2;
+    --discrepancy:#9C3B44; --discrepancy-bg:#F5E1DF;
+    --onlyfam:#A15A2E; --onlyfam-bg:#F5E5D5;
+    --onlypick:#6B4E8C; --onlypick-bg:#EBE3F2;
     --radius:10px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--bg); color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    font-variant-numeric:tabular-nums;
-    -webkit-font-smoothing:antialiased;
-    padding-bottom:60px;
+    background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif;
+    font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased; padding-bottom:60px;
   }
   h1,h2,h3{font-family:'Fraunces',Georgia,serif; margin:0;}
 
@@ -48,7 +37,7 @@
     border-radius:50%; background:radial-gradient(circle at 30% 30%, rgba(245,239,226,0.10), transparent 60%);
   }
   .topbar .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#C9CFB9; font-weight:600; margin-bottom:8px;}
-  .topbar h1{font-size:30px; font-weight:600; line-height:1.15; max-width:720px;}
+  .topbar h1{font-size:28px; font-weight:600; line-height:1.15; max-width:760px;}
   .topbar .sub{margin-top:8px; color:#DCE0CC; font-size:14.5px;}
   .topbar .sub b{color:#F5EFE2;}
 
@@ -57,14 +46,26 @@
   .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:-26px; position:relative; z-index:2;}
   .kpi{background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius); padding:16px 18px; box-shadow:0 6px 18px rgba(51,64,44,0.07);}
   .kpi .label{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;}
-  .kpi .value{font-family:'Fraunces',serif; font-size:26px; font-weight:600; margin-top:6px; color:var(--ink);}
-  .kpi .value.pos,.kpi .value.neg{color:var(--discrepancy);}
+  .kpi .value{font-family:'Fraunces',serif; font-size:24px; font-weight:600; margin-top:6px; color:var(--ink);}
+  .kpi .value.flag{color:var(--discrepancy);}
   .kpi .note{font-size:12px; color:var(--ink-faint); margin-top:4px;}
 
   section.block{margin-top:34px;}
   .block-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:6px;}
   .block-head h2{font-size:19px; font-weight:600; color:var(--ink);}
   .block-head .hint{font-size:12.5px; color:var(--ink-soft);}
+
+  .findings{background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius); padding:18px 20px;}
+  .finding{padding:10px 0; border-bottom:1px solid var(--card-line);}
+  .finding:last-child{border-bottom:none;}
+  .finding .flabel{font-weight:700; font-size:13.5px; color:var(--wine); margin-bottom:3px;}
+  .finding .ftext{font-size:13.5px; color:var(--ink-soft); line-height:1.5;}
+
+  .chart-card{background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius); padding:18px 20px 8px;}
+  .chart-legend{display:flex; gap:16px; font-size:12px; color:var(--ink-soft); margin-bottom:10px;}
+  .chart-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .swatch{width:10px; height:10px; border-radius:3px; display:inline-block;}
+  svg.chart text{font-family:'Inter',sans-serif; fill:var(--ink-faint);}
 
   .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px;}
   .search{
@@ -78,7 +79,6 @@
     white-space:nowrap; transition:transform .06s ease;
   }
   .chip:hover{transform:translateY(-1px);}
-  .chip:focus-visible{outline:2px solid var(--green-deep-soft); outline-offset:2px;}
   .chip.active{border-color:transparent; color:#fff; background:var(--green-deep);}
 
   .ranch{background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius); margin-bottom:10px; overflow:hidden;}
@@ -86,7 +86,6 @@
     display:grid; grid-template-columns:90px 1fr 150px 120px 30px;
     align-items:center; gap:16px; padding:16px 18px; cursor:pointer; -webkit-tap-highlight-color:transparent;
   }
-  .ranch-head:focus-visible{outline:2px solid var(--green-deep-soft); outline-offset:-2px;}
   .ranch-num{font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--ink);}
   .ranch-sub{font-size:12px; color:var(--ink-soft); margin-top:2px;}
   .ranch-bar{display:flex; flex-direction:column; gap:3px;}
@@ -107,12 +106,11 @@
   .badge.Discrepancy{color:var(--discrepancy); background:var(--discrepancy-bg);}
   .badge.Only-in-Famous{color:var(--onlyfam); background:var(--onlyfam-bg);}
   .badge.Only-in-Picktrace{color:var(--onlypick); background:var(--onlypick-bg);}
+  .badge.No-Activity{color:var(--ink-faint); background:#EFE9DC;}
 
   .ranch-detail{display:none; padding:4px 18px 18px; border-top:1px solid var(--card-line);}
   .ranch.open .ranch-detail{display:block;}
-  .row-note{
-    font-size:12.5px; color:var(--ink-soft); font-style:italic; margin-top:4px;
-  }
+  .row-note{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin-top:4px;}
   table.loc-table{width:100%; border-collapse:collapse; font-size:13px; margin-top:14px;}
   table.loc-table th{
     text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em;
@@ -124,7 +122,6 @@
   .loc-table-wrap{overflow-x:auto;}
   .muted{color:var(--ink-faint);}
   .no-rows{padding:14px 0; color:var(--ink-faint); font-size:13px; font-style:italic;}
-
   .empty-state{text-align:center; padding:50px 20px; color:var(--ink-soft); background:var(--card); border:1px dashed var(--card-line); border-radius:var(--radius);}
 
   footer{max-width:1180px; margin:40px auto 0; padding:20px 24px; border-top:1px solid var(--card-line);}
@@ -146,20 +143,38 @@
 <div class="topbar">
   <div class="eyebrow">Vista Vineyards · Harvest Reconciliation</div>
   <h1>Famous vs. Picktrace, by ranch</h1>
-  <div class="sub">Dates covered: <b id="dateRange">–</b> · click any ranch to see box differences by crew and location</div>
+  <div class="sub">Dates covered: <b id="dateRange">–</b> · click any ranch to see box differences by date and foreman</div>
 </div>
 
 <main>
   <section class="kpis" id="kpis"></section>
 
   <section class="block">
+    <div class="block-head"><h2>Key findings</h2></div>
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Famous vs. Picktrace, by day</h2>
+      <div class="hint">Totals across all ranches</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-legend">
+        <span><span class="swatch" style="background:var(--green-deep-soft)"></span>Famous</span>
+        <span><span class="swatch" style="background:var(--wine-soft)"></span>Picktrace</span>
+      </div>
+      <div id="chartWrap"></div>
+    </div>
+  </section>
+
+  <section class="block">
     <div class="block-head">
       <h2>By ranch</h2>
       <div class="hint" id="ranchCountHint"></div>
     </div>
-
     <div class="controls">
-      <input class="search" id="searchBox" type="text" placeholder="Search crew foreman or location…" autocomplete="off">
+      <input class="search" id="searchBox" type="text" placeholder="Search foreman name…" autocomplete="off">
       <button class="chip active" data-filter="All">All</button>
       <button class="chip" data-filter="Discrepancy">Discrepancy</button>
       <button class="chip" data-filter="Minor Variance">Minor Variance</button>
@@ -167,7 +182,6 @@
       <button class="chip" data-filter="Only in Picktrace">Only in Picktrace</button>
       <button class="chip" data-filter="Matched">Matched</button>
     </div>
-
     <div id="ranchList"></div>
     <div class="empty-state" id="emptyState" style="display:none;">No ranches match that search or filter.</div>
   </section>
@@ -181,12 +195,12 @@
     <span><span class="badge Only-in-Famous">Only in Famous</span> no Picktrace entry</span>
     <span><span class="badge Only-in-Picktrace">Only in Picktrace</span> no Famous entry</span>
   </div>
-  <p>Crew names aren't entered the same way in both systems (handwritten vs. digital). Where two entries clearly belong to one person, they're combined — see the note under that row.</p>
-  <p>"Famous Boxes" and "Picktrace Pieces" track the same unit once both sources are scoped to the same dates.</p>
+  <p>Foreman names aren't entered the same way in both systems (handwritten vs. digital). Consistent aliases are matched automatically; one-off anomalies are called out per row.</p>
+  <p>"Other" ranch groups Picktrace's "Columbine Cold Storage" entries — a receiving-point label, not a field block.</p>
 </footer>
 
 <script>
-const DATA = {"meta": {"dateRange": "8/5/2026", "famousTotal": 40727.0, "picktraceTotal": 38935.0, "diffTotal": -1792.0}, "ranches": [{"ranch": "408", "famTotal": 15815.0, "pickTotal": 14022.0, "diffTotal": -1793.0, "status": "Discrepancy", "rows": [{"locGroup": "408-5,6,11(+12 in Picktrace)", "famLabel": "408-5,6,11", "pickLabel": null, "famCrew": "Alondra", "pickCrew": null, "famVal": 1210.0, "pickVal": 0, "diff": -1210.0, "status": "Only in Famous", "note": "No Picktrace match found on this block."}, {"locGroup": "408-9,10", "famLabel": "408-9,10", "pickLabel": null, "famCrew": "Maria Guerrero", "pickCrew": null, "famVal": 582.0, "pickVal": 0, "diff": -582.0, "status": "Only in Famous", "note": "Entire block still missing from Picktrace for this date \u2014 a recurring gap."}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Saturnino Valdez", "pickCrew": "Saturnino Valdez", "famVal": 1016.0, "pickVal": 1015.0, "diff": -1.0, "status": "Matched", "note": null}, {"locGroup": "408-1e,2e", "famLabel": "408-1e,2e", "pickLabel": "408 - 1e,2e", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 1768.0, "pickVal": 1768.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 1387.0, "pickVal": 1387.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 989.0, "pickVal": 989.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 920.0, "pickVal": 920.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 1388.0, "pickVal": 1388.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Javier C., Juan, Juan L.", "pickCrew": "Juan Morelos", "famVal": 1844.0, "pickVal": 1844.0, "diff": 0.0, "status": "Matched", "note": "Famous splits this foreman's boxes across three name variants; combined, matches Picktrace's 'Juan Morelos' exactly."}, {"locGroup": "408-3,4,7,8", "famLabel": "408-3,4,7,8", "pickLabel": "408 - 3,4,7,8", "famCrew": "Loreto", "pickCrew": "Loreto Lopez", "famVal": 1373.0, "pickVal": 1373.0, "diff": 0.0, "status": "Matched", "note": "Famous logged part of Loreto's boxes on this block under 'Celia E.' \u2014 a mislabeling, not a second person. Both entries belong to Loreto and are combined here; matches Picktrace's 'Loreto Lopez' exactly."}, {"locGroup": "408-5,6,11(+12 in Picktrace)", "famLabel": "408-5,6,11", "pickLabel": "408 - 5,6,11,12", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 1048.0, "pickVal": 1048.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-5,6,11(+12 in Picktrace)", "famLabel": "408-5,6,11", "pickLabel": "408 - 5,6,11,12", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 629.0, "pickVal": 629.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-5,6,11(+12 in Picktrace)", "famLabel": "408-5,6,11", "pickLabel": "408 - 5,6,11,12", "famCrew": "Ramona Baltazar", "pickCrew": "Ramona Baltazar", "famVal": 1058.0, "pickVal": 1058.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "408-5,6,11(+12 in Picktrace)", "famLabel": "408-5,6,11", "pickLabel": "408 - 5,6,11,12", "famCrew": "Zenaida Padilla", "pickCrew": "Zenaida Padilla 6", "famVal": 603.0, "pickVal": 603.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "405", "famTotal": 9854.0, "pickTotal": 9855.0, "diffTotal": 1.0, "status": "Matched", "rows": [{"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Modesto", "pickCrew": "MODESTO JIMENEZ", "famVal": 1003.0, "pickVal": 1004.0, "diff": 1.0, "status": "Matched", "note": null}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Amarol, Armando", "pickCrew": "AMADOR CUEVAS", "famVal": 1260.0, "pickVal": 1260.0, "diff": 0.0, "status": "Matched", "note": "Famous splits this foreman's boxes between 'Amarol' and 'Armando'; combined, matches Picktrace exactly."}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Aniceto Paredes", "pickCrew": "ANICETO PAREDES", "famVal": 1260.0, "pickVal": 1260.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Jesus Parra, Jesus Perez, Jesus Ponce", "pickCrew": "Jesus Parra", "famVal": 1253.0, "pickVal": 1253.0, "diff": 0.0, "status": "Matched", "note": "Famous splits this foreman's boxes across three name variants; combined, matches Picktrace exactly."}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 984.0, "pickVal": 984.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 1691.0, "pickVal": 1691.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 870.0, "pickVal": 870.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "405-1,2,3,7", "famLabel": "405-1,2,3,7", "pickLabel": "405 - 1,2,3,7", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 1533.0, "pickVal": 1533.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "407", "famTotal": 2441.0, "pickTotal": 2441.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "407-3,4,7,8", "famLabel": "407-3,4,7,8", "pickLabel": "407 - 3,4,7,8", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 951.0, "pickVal": 951.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "407-5,6", "famLabel": "407-5,6", "pickLabel": "407 - 5,6", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 1490.0, "pickVal": 1490.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "410", "famTotal": 2115.0, "pickTotal": 2115.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "410-6e,6w,8", "famLabel": "410-6e,6w,8", "pickLabel": "410 - 6e,6w,8", "famCrew": "Emilia Ramirez", "pickCrew": "EMILIA RAMIREZ", "famVal": 1055.0, "pickVal": 1055.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "410-6e,6w,8", "famLabel": "410-6e,6w,8", "pickLabel": "410 - 6e,6w,8", "famCrew": "Leidy Franco", "pickCrew": "Leidy Franco", "famVal": 1060.0, "pickVal": 1060.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "704", "famTotal": 786.0, "pickTotal": 786.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "704-10,11", "famLabel": "704-10-11", "pickLabel": "704 - 10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 786.0, "pickVal": 786.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "705", "famTotal": 3225.0, "pickTotal": 3225.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "705-1,2", "famLabel": "705-1,2", "pickLabel": "705 - 1,2", "famCrew": "Cesar Ramos", "pickCrew": "Cesar Ramos", "famVal": 1647.0, "pickVal": 1647.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "705-1,2", "famLabel": "705-1,2", "pickLabel": "705 - 1,2", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 1578.0, "pickVal": 1578.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "706", "famTotal": 1190.0, "pickTotal": 1190.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "706-1,2", "famLabel": "706-1,2", "pickLabel": "706 - 1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1190.0, "pickVal": 1190.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "801", "famTotal": 5301.0, "pickTotal": 5301.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"locGroup": "801-5,6,8,9(+10,11,12 in Picktrace)", "famLabel": "801-5,6,8,9", "pickLabel": "801 - 5,6,8,9,10,11,12", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 1332.0, "pickVal": 1332.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "801-5,6,8,9(+10,11,12 in Picktrace)", "famLabel": "801-5,6,8,9", "pickLabel": "801 - 5,6,8,9,10,11,12", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 980.0, "pickVal": 980.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "801-5,6,8,9(+10,11,12 in Picktrace)", "famLabel": "801-5,6,8,9", "pickLabel": "801 - 5,6,8,9,10,11,12", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 884.0, "pickVal": 884.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "801-5,6,8,9(+10,11,12 in Picktrace)", "famLabel": "801-5,6,8,9", "pickLabel": "801 - 5,6,8,9,10,11,12", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 1192.0, "pickVal": 1192.0, "diff": 0.0, "status": "Matched", "note": null}, {"locGroup": "801-5,6,8,9(+10,11,12 in Picktrace)", "famLabel": "801-5,6,8,9", "pickLabel": "801 - 5,6,8,9,10,11,12", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 913.0, "pickVal": 913.0, "diff": 0.0, "status": "Matched", "note": null}]}], "statusCounts": {"Discrepancy": 1, "Matched": 7}};
+const DATA = {"meta": {"dateRange": "8/24/2026 \u2013 8/28/2026", "famousTotal": 128220.0, "picktraceTotal": 128204.67, "diffTotal": -15.330000000001746}, "ranches": [{"ranch": "Other", "famTotal": 0, "pickTotal": 3606.0, "diffTotal": 3606.0, "status": "Only in Picktrace", "rows": [{"date": "2026-08-25", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "Cesar Ramos", "famVal": 0, "pickVal": 3390.0, "diff": 3390.0, "status": "Only in Picktrace", "note": "3,390 pieces logged at 'Columbine Cold Storage' with no corresponding Famous entry anywhere this date \u2014 unexplained; Cesar Ramos otherwise only appears once all week (8/24, block 702)."}, {"date": "2026-08-24", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "Cesar Ramos", "famVal": 0, "pickVal": 216.0, "diff": 216.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-27", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "Cesar Ramos", "famVal": 0, "pickVal": 0.0, "diff": 0.0, "status": "No Activity", "note": null}, {"date": "2026-08-27", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "DIEGO BANUELOS", "famVal": 0, "pickVal": 0.0, "diff": 0.0, "status": "No Activity", "note": null}, {"date": "2026-08-28", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "DIEGO BANUELOS", "famVal": 0, "pickVal": 0.0, "diff": 0.0, "status": "No Activity", "note": null}, {"date": "2026-08-28", "locGroup": "Columbine Cold Storage", "famCrew": null, "pickCrew": "MODESTO JIMENEZ", "famVal": 0, "pickVal": 0.0, "diff": 0.0, "status": "No Activity", "note": null}]}, {"ranch": "408", "famTotal": 23324.0, "pickTotal": 20376.0, "diffTotal": -2948.0, "status": "Discrepancy", "rows": [{"date": "2026-08-28", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Alondra", "pickCrew": null, "famVal": 1209.0, "pickVal": 0, "diff": -1209.0, "status": "Only in Famous", "note": "No Picktrace match \u2014 this foreman has never had a Picktrace entry on this block, consistent with every prior report."}, {"date": "2026-08-25", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Alondra", "pickCrew": null, "famVal": 827.0, "pickVal": 0, "diff": -827.0, "status": "Only in Famous", "note": "No Picktrace match \u2014 this foreman has never had a Picktrace entry on this block, consistent with every prior report."}, {"date": "2026-08-27", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Alondra", "pickCrew": null, "famVal": 799.0, "pickVal": 0, "diff": -799.0, "status": "Only in Famous", "note": "No Picktrace match \u2014 this foreman has never had a Picktrace entry on this block, consistent with every prior report."}, {"date": "2026-08-26", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Alondra", "pickCrew": null, "famVal": 760.0, "pickVal": 0, "diff": -760.0, "status": "Only in Famous", "note": "No Picktrace match \u2014 this foreman has never had a Picktrace entry on this block, consistent with every prior report."}, {"date": "2026-08-26", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": null, "pickCrew": "Lilia Medina", "famVal": 0, "pickVal": 627.0, "diff": 627.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-24", "locGroup": "408-3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 1576.0, "pickVal": 992.0, "diff": -584.0, "status": "Discrepancy", "note": "584 boxes lower than Picktrace; Juan M is almost exactly 584 higher the same day/block \u2014 may be a swap between the two, though not confirmed."}, {"date": "2026-08-24", "locGroup": "408-3,4,7,8", "famCrew": "Juan M", "pickCrew": "Juan Morelos", "famVal": 629.0, "pickVal": 1213.0, "diff": 584.0, "status": "Discrepancy", "note": "584 boxes higher than Famous; Javier Alvarado is almost exactly 584 lower the same day/block \u2014 may be a swap between the two, though not confirmed."}, {"date": "2026-08-26", "locGroup": "408-3,4,7,8", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 252.0, "pickVal": 0, "diff": -252.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "408-3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 731.0, "pickVal": 983.0, "diff": 252.0, "status": "Discrepancy", "note": null}, {"date": "2026-08-24", "locGroup": "408-1,2", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 596.0, "pickVal": 616.0, "diff": 20.0, "status": "Minor Variance", "note": null}, {"date": "2026-08-24", "locGroup": "408-3,4,7,8", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 1093.0, "pickVal": 1093.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "408-3,4,7,8", "famCrew": "Loreto Lopez", "pickCrew": "Loreto Lopez", "famVal": 1172.0, "pickVal": 1172.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 719.0, "pickVal": 719.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 570.0, "pickVal": 570.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 626.0, "pickVal": 626.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Saturnino Valdez", "pickCrew": "Saturnino Valdez", "famVal": 669.0, "pickVal": 669.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-1,2", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 774.0, "pickVal": 774.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 1158.0, "pickVal": 1158.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-3,4,7,8", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 1253.0, "pickVal": 1253.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-3,4,7,8", "famCrew": "Juan M", "pickCrew": "Juan Morelos", "famVal": 918.0, "pickVal": 918.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-3,4,7,8", "famCrew": "Loreto Lopez", "pickCrew": "Loreto Lopez", "famVal": 1146.0, "pickVal": 1146.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 754.0, "pickVal": 754.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 585.0, "pickVal": 585.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 646.0, "pickVal": 646.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "408-5,6,11(+12 in Picktrace)", "famCrew": "Saturnino Valdez", "pickCrew": "Saturnino Valdez", "famVal": 404.0, "pickVal": 404.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "408-3,4,7,8", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 1015.0, "pickVal": 1015.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "408-3,4,7,8", "famCrew": "Juan M", "pickCrew": "Juan Morelos", "famVal": 1066.0, "pickVal": 1066.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "408-3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 721.0, "pickVal": 721.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "408-3,4,7,8", "famCrew": "Javier Alvarado", "pickCrew": "Javier Alvarado 7", "famVal": 656.0, "pickVal": 656.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "706", "famTotal": 13251.0, "pickTotal": 12606.0, "diffTotal": -645.0, "status": "Minor Variance", "rows": [{"date": "2026-08-26", "locGroup": "706-1,2", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 627.0, "pickVal": 0.0, "diff": -627.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-27", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 1067.0, "pickVal": 1048.0, "diff": -19.0, "status": "Minor Variance", "note": null}, {"date": "2026-08-27", "locGroup": "706-1,2", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 400.0, "pickVal": 402.0, "diff": 2.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "706-1,2", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 537.0, "pickVal": 535.0, "diff": -2.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-1,2", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 681.0, "pickVal": 682.0, "diff": 1.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 593.0, "pickVal": 593.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 566.0, "pickVal": 566.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "706-1,2", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 616.0, "pickVal": 616.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "706-1,2", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 522.0, "pickVal": 522.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 635.0, "pickVal": 635.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 858.0, "pickVal": 858.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "706-1,2", "famCrew": "Adriana Perez", "pickCrew": "Adriana Perez Ferrer", "famVal": 469.0, "pickVal": 469.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 1076.0, "pickVal": 1076.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 571.0, "pickVal": 571.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-1,2", "famCrew": "Jorge Rosales", "pickCrew": "Jorge Rosales", "famVal": 582.0, "pickVal": 582.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-1,2", "famCrew": "Lilia Medina", "pickCrew": "Lilia Medina", "famVal": 967.0, "pickVal": 967.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Jose Gpe Gamboa", "pickCrew": "Jose Guadalupe Gamboa 2", "famVal": 781.0, "pickVal": 781.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Nicolas Raya", "pickCrew": "Nicolas Raya", "famVal": 662.0, "pickVal": 662.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "706-8,9,14(+15 in Picktrace)", "famCrew": "Raul O.", "pickCrew": "Raul Ochoa 15", "famVal": 1041.0, "pickVal": 1041.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "405", "famTotal": 45252.0, "pickTotal": 45227.67, "diffTotal": -24.330000000001746, "status": "Matched", "rows": [{"date": "2026-08-27", "locGroup": "405-10", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 1302.0, "pickVal": 0, "diff": -1302.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Uriana Urias", "famVal": 0, "pickVal": 1302.0, "diff": 1302.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-25", "locGroup": "405-10", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 1135.0, "pickVal": 0, "diff": -1135.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Uriana Urias", "famVal": 0, "pickVal": 1135.0, "diff": 1135.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-27", "locGroup": "405-10", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 1004.0, "pickVal": 0, "diff": -1004.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "MOISES FELIX", "famVal": 0, "pickVal": 1004.0, "diff": 1004.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-25", "locGroup": "405-10", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 995.0, "pickVal": 0, "diff": -995.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "MOISES FELIX", "famVal": 0, "pickVal": 995.0, "diff": 995.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-28", "locGroup": "405-10", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 957.0, "pickVal": 0, "diff": -957.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Uriana Urias", "famVal": 0, "pickVal": 957.0, "diff": 957.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-27", "locGroup": "405-10", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 944.0, "pickVal": 0, "diff": -944.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Manuel Miranda", "famVal": 0, "pickVal": 944.0, "diff": 944.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-28", "locGroup": "405-10", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 879.0, "pickVal": 0, "diff": -879.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Manuel Miranda", "famVal": 0, "pickVal": 876.0, "diff": 876.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-26", "locGroup": "405-10", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 872.0, "pickVal": 0, "diff": -872.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Uriana Urias", "famVal": 0, "pickVal": 872.0, "diff": 872.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-28", "locGroup": "405-10", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 853.0, "pickVal": 0, "diff": -853.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "MOISES FELIX", "famVal": 0, "pickVal": 853.0, "diff": 853.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-25", "locGroup": "405-10", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 754.0, "pickVal": 0, "diff": -754.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "405-10", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 668.0, "pickVal": 0, "diff": -668.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "Manuel Miranda", "famVal": 0, "pickVal": 668.0, "diff": 668.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-26", "locGroup": "405-10", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 661.0, "pickVal": 0, "diff": -661.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": null, "pickCrew": "MOISES FELIX", "famVal": 0, "pickVal": 661.0, "diff": 661.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Amarol L.", "pickCrew": "AMADOR CUEVAS", "famVal": 330.0, "pickVal": 742.0, "diff": 412.0, "status": "Discrepancy", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "(no crew name)", "pickCrew": null, "famVal": 408.0, "pickVal": 0, "diff": -408.0, "status": "Only in Famous", "note": "Famous logged 408 boxes with no crew name on this date/block \u2014 likely an illegible ticket."}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Modesto", "pickCrew": "MODESTO JIMENEZ", "famVal": 320.0, "pickVal": 707.67, "diff": 387.66999999999996, "status": "Discrepancy", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 412.0, "pickVal": 754.0, "diff": 342.0, "status": "Discrepancy", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Amarol L.", "pickCrew": "AMADOR CUEVAS", "famVal": 320.0, "pickVal": 636.0, "diff": 316.0, "status": "Discrepancy", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Jesus Perez", "pickCrew": "Jesus Parra", "famVal": 1149.0, "pickVal": 833.0, "diff": -316.0, "status": "Discrepancy", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Jesus Perez", "pickCrew": "Jesus Parra", "famVal": 1220.0, "pickVal": 1215.0, "diff": -5.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Modesto", "pickCrew": "MODESTO JIMENEZ", "famVal": 940.0, "pickVal": 944.0, "diff": 4.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 743.0, "pickVal": 741.0, "diff": -2.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Jesus Perez", "pickCrew": "Jesus Parra", "famVal": 810.0, "pickVal": 812.0, "diff": 2.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Amarol L.", "pickCrew": "AMADOR CUEVAS", "famVal": 488.0, "pickVal": 487.0, "diff": -1.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 737.0, "pickVal": 738.0, "diff": 1.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-10", "famCrew": "Manuel Miranda", "pickCrew": "Manuel Miranda", "famVal": 463.0, "pickVal": 463.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-10", "famCrew": "Moises Felix", "pickCrew": "MOISES FELIX", "famVal": 505.0, "pickVal": 505.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-10", "famCrew": "Uriana Urias", "pickCrew": "Uriana Urias", "famVal": 759.0, "pickVal": 759.0, "diff": 0.0, "status": "Matched", "note": "Famous logs this at block 405-10; Picktrace logs the identical 759 boxes at block 405-8,9 instead \u2014 a cross-block mix-up, not a real gap."}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 570.0, "pickVal": 570.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 623.0, "pickVal": 623.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 876.0, "pickVal": 876.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 787.0, "pickVal": 787.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 506.0, "pickVal": 506.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Jesus Perez", "pickCrew": "Jesus Parra", "famVal": 802.0, "pickVal": 802.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "405-8,9", "famCrew": "Modesto", "pickCrew": "MODESTO JIMENEZ", "famVal": 654.0, "pickVal": 654.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 798.0, "pickVal": 798.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 1065.0, "pickVal": 1065.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 1142.0, "pickVal": 1142.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 787.0, "pickVal": 787.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "405-8,9", "famCrew": "Jesus Perez", "pickCrew": "Jesus Parra", "famVal": 932.0, "pickVal": 932.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 717.0, "pickVal": 717.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 813.0, "pickVal": 813.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 881.0, "pickVal": 881.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 688.0, "pickVal": 688.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "405-8,9", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 558.0, "pickVal": 558.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 1019.0, "pickVal": 1019.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Amarol L.", "pickCrew": "AMADOR CUEVAS", "famVal": 1424.0, "pickVal": 1424.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 1263.0, "pickVal": 1263.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 1274.0, "pickVal": 1274.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 996.0, "pickVal": 996.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "405-8,9", "famCrew": "Jairo", "pickCrew": "Jairo Garay 3", "famVal": 977.0, "pickVal": 977.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Alvaro Ruiz", "pickCrew": "ALVARO RUIZ", "famVal": 628.0, "pickVal": 628.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Amarol L.", "pickCrew": "AMADOR CUEVAS", "famVal": 998.0, "pickVal": 998.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Ana Garcia", "pickCrew": "ANA GARCIA", "famVal": 957.0, "pickVal": 957.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Celia E.", "pickCrew": "Celia Espinoza", "famVal": 913.0, "pickVal": 913.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "405-8,9", "famCrew": "Erika Caro", "pickCrew": "Ericka Caro", "famVal": 976.0, "pickVal": 976.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "702", "famTotal": 12648.0, "pickTotal": 12643.0, "diffTotal": -5.0, "status": "Matched", "rows": [{"date": "2026-08-27", "locGroup": "702-1,2,3(combined)", "famCrew": "Loreto Lopez", "pickCrew": "Loreto Lopez", "famVal": 934.0, "pickVal": 0, "diff": -934.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-27", "locGroup": "702-1,2,3; 702-4,5,6", "famCrew": null, "pickCrew": "Loreto Lopez", "famVal": 0, "pickVal": 934.0, "diff": 934.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-26", "locGroup": "702-1,2,3(combined)", "famCrew": "Loreto Lopez", "pickCrew": "Loreto Lopez", "famVal": 716.0, "pickVal": 0, "diff": -716.0, "status": "Only in Famous", "note": null}, {"date": "2026-08-26", "locGroup": "702-1,2,3; 702-4,5,6", "famCrew": null, "pickCrew": "Loreto Lopez", "famVal": 0, "pickVal": 716.0, "diff": 716.0, "status": "Only in Picktrace", "note": null}, {"date": "2026-08-25", "locGroup": "702-1,2,3(combined)", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 1024.0, "pickVal": 1022.0, "diff": -2.0, "status": "Matched", "note": "Picktrace split this foreman's boxes between block 702-1,2,3 (354) and 'Columbine Cold Storage' (668) on 8/25; combined, nearly matches Famous."}, {"date": "2026-08-27", "locGroup": "702-1,2,3(combined)", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 937.0, "pickVal": 935.0, "diff": -2.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "702-1,2,3(combined)", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 895.0, "pickVal": 894.0, "diff": -1.0, "status": "Matched", "note": "Picktrace split this foreman's boxes between block 702-1,2,3 (116) and 'Columbine Cold Storage' (778) on 8/25; combined, nearly matches Famous."}, {"date": "2026-08-24", "locGroup": "702-1,2,3(combined)", "famCrew": "Cesar Ramos", "pickCrew": "Cesar Ramos", "famVal": 901.0, "pickVal": 901.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "702-1,2,3(combined)", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 865.0, "pickVal": 865.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "702-1,2,3(combined)", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 460.0, "pickVal": 460.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "702-1,2,3(combined)", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 1115.0, "pickVal": 1115.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "702-1,2,3(combined)", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 1111.0, "pickVal": 1111.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "702-1,2,3(combined)", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 1238.0, "pickVal": 1238.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "702-1,2,3(combined)", "famCrew": "Leidy F.", "pickCrew": "Leidy Franco", "famVal": 926.0, "pickVal": 926.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "702-1,2,3(combined)", "famCrew": "Loreto Lopez", "pickCrew": "Loreto Lopez", "famVal": 488.0, "pickVal": 488.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "702-1,2,3(combined)", "famCrew": "Miguel Silva", "pickCrew": "MIGUEL ANGEL SILVA", "famVal": 1038.0, "pickVal": 1038.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "407", "famTotal": 1984.0, "pickTotal": 1985.0, "diffTotal": 1.0, "status": "Matched", "rows": [{"date": "2026-08-25", "locGroup": "407-5,6", "famCrew": "Leidy F.", "pickCrew": "Leidy Franco", "famVal": 430.0, "pickVal": 432.0, "diff": 2.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "407-5,6", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 510.0, "pickVal": 509.0, "diff": -1.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "407-5,6", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 480.0, "pickVal": 480.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "407-5,6", "famCrew": "Leidy F.", "pickCrew": "Leidy Franco", "famVal": 564.0, "pickVal": 564.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "410", "famTotal": 5695.0, "pickTotal": 5695.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"date": "2026-08-24", "locGroup": "410-6e,6w,8", "famCrew": "Emilia Ramirez", "pickCrew": "EMILIA RAMIREZ", "famVal": 1030.0, "pickVal": 1030.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "410-6e,6w,8", "famCrew": "Emilia Ramirez", "pickCrew": "EMILIA RAMIREZ", "famVal": 1102.0, "pickVal": 1102.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "410-6e,6w,8", "famCrew": "Emilia Ramirez", "pickCrew": "EMILIA RAMIREZ", "famVal": 1202.0, "pickVal": 1202.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "410-6e,6w,8", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 768.0, "pickVal": 768.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "410-6e,6w,8", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 906.0, "pickVal": 906.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "410-6e,6w,8", "famCrew": "Jose Rodriguez", "pickCrew": "Jose Rodriguez", "famVal": 687.0, "pickVal": 687.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "701", "famTotal": 13030.0, "pickTotal": 13030.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"date": "2026-08-24", "locGroup": "701-1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1205.0, "pickVal": 1205.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-24", "locGroup": "701-1,2", "famCrew": "Veronica Calderon", "pickCrew": "Veronica Calderon", "famVal": 502.0, "pickVal": 502.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "701-1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1077.0, "pickVal": 1077.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "701-1,2", "famCrew": "Veronica Calderon", "pickCrew": "Veronica Calderon", "famVal": 440.0, "pickVal": 440.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "701-1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1211.0, "pickVal": 1211.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "701-1,2", "famCrew": "Veronica Calderon", "pickCrew": "Veronica Calderon", "famVal": 525.0, "pickVal": 525.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "701-1,2", "famCrew": "Juan M", "pickCrew": "Juan Morelos", "famVal": 956.0, "pickVal": 956.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "701-1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1342.0, "pickVal": 1342.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "701-1,2", "famCrew": "Veronica Calderon", "pickCrew": "Veronica Calderon", "famVal": 727.0, "pickVal": 727.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "701-1,2", "famCrew": "Juan M", "pickCrew": "Juan Morelos", "famVal": 1421.0, "pickVal": 1421.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "701-1,2", "famCrew": "M. Belen", "pickCrew": "Maria Belen Ramos", "famVal": 1091.0, "pickVal": 1091.0, "diff": 0.0, "status": "Matched", "note": "Famous logs this at block 701-1,2; Picktrace logs the identical 1,091 boxes at block 702-1,2,3 instead \u2014 a cross-block mix-up, not a real gap."}, {"date": "2026-08-28", "locGroup": "701-1,2", "famCrew": "Maria Herrera", "pickCrew": "MARIA HERRERA", "famVal": 1513.0, "pickVal": 1513.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "701-1,2", "famCrew": "Veronica Calderon", "pickCrew": "Veronica Calderon", "famVal": 1020.0, "pickVal": 1020.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "704", "famTotal": 3539.0, "pickTotal": 3539.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"date": "2026-08-24", "locGroup": "704-10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 593.0, "pickVal": 593.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "704-10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 691.0, "pickVal": 691.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "704-10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 626.0, "pickVal": 626.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "704-10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 826.0, "pickVal": 826.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "704-10,11", "famCrew": "Alejandra", "pickCrew": "Alejandra Nieblas 5", "famVal": 803.0, "pickVal": 803.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "801", "famTotal": 2381.0, "pickTotal": 2381.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"date": "2026-08-24", "locGroup": "801-1,2,3n,7", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 1191.0, "pickVal": 1191.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-25", "locGroup": "801-1,2,3n,7", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 1190.0, "pickVal": 1190.0, "diff": 0.0, "status": "Matched", "note": null}]}, {"ranch": "802", "famTotal": 7116.0, "pickTotal": 7116.0, "diffTotal": 0.0, "status": "Matched", "rows": [{"date": "2026-08-26", "locGroup": "802-2,3,4", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 1625.0, "pickVal": 1625.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-26", "locGroup": "802-2,3,4", "famCrew": "Leidy F.", "pickCrew": "Leidy Franco", "famVal": 681.0, "pickVal": 681.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "802-2,3,4", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 2143.0, "pickVal": 2143.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-27", "locGroup": "802-2,3,4", "famCrew": "Leidy F.", "pickCrew": "Leidy Franco", "famVal": 891.0, "pickVal": 891.0, "diff": 0.0, "status": "Matched", "note": null}, {"date": "2026-08-28", "locGroup": "802-2,3,4", "famCrew": "Eloy Perez", "pickCrew": "Eloy Perez - 5", "famVal": 1776.0, "pickVal": 1776.0, "diff": 0.0, "status": "Matched", "note": null}]}], "days": [{"date": "2026-08-24", "famTotal": 23067.0, "pickTotal": 23302.0}, {"date": "2026-08-25", "famTotal": 26423.0, "pickTotal": 28986.0}, {"date": "2026-08-26", "famTotal": 24717.0, "pickTotal": 23936.67}, {"date": "2026-08-27", "famTotal": 27963.0, "pickTotal": 27138.0}, {"date": "2026-08-28", "famTotal": 26050.0, "pickTotal": 24842.0}]};
 
 function fmt(n){
   if (n === null || n === undefined) return '—';
@@ -199,6 +213,11 @@ function signed(n){
   return (r > 0 ? '+' : '') + r.toLocaleString('en-US');
 }
 function slug(s){ return s.replace(/\s+/g,'-'); }
+function shortDate(iso){
+  const [y,m,d] = iso.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m,10)-1]} ${parseInt(d,10)}`;
+}
 
 function renderKPIs(){
   const el = document.getElementById('kpis');
@@ -215,7 +234,7 @@ function renderKPIs(){
     </div>
     <div class="kpi">
       <div class="label">Net Difference</div>
-      <div class="value ${m.diffTotal<0?'neg':'pos'}">${signed(m.diffTotal)}</div>
+      <div class="value flag">${signed(m.diffTotal)}</div>
       <div class="note">Picktrace minus Famous</div>
     </div>
     <div class="kpi">
@@ -227,11 +246,60 @@ function renderKPIs(){
   document.getElementById('dateRange').textContent = m.dateRange;
 }
 
+function renderFindings(){
+  const el = document.getElementById('findings');
+  const items = [
+    ["8/24 shortfall — corrected", "The prior version of this report flagged a system-wide 8/24 shortfall (27 foremen across 4+ ranches, -11,748 for the day). Picktrace has since corrected it — 8/24 now totals 23,302 vs. 11,319 before, and every other date (8/25-8/28) is unchanged. The 5-day gap has closed from -11,998 to just -15."],
+    ["Remaining from 8/24 — two small mix-ups", "Uriana Urias's exact 759 boxes are logged at block 405-10 in Famous but 405-8,9 in Picktrace. Separately, Javier Alvarado is 584 boxes lower than Picktrace while Juan M is almost exactly 584 higher, same block — may be a swap between the two, not confirmed."],
+    ["Cross-block mix-up: 701 vs. 702, 8/28", "M. Belen's exact 1,091 boxes are logged at block 701-1,2 in Famous but block 702-1,2,3 in Picktrace — same person, same day, same count, wrong block in one system."],
+    ["Columbine Cold Storage, 8/25", "Part of Maria Belen Ramos's and Miguel Silva's block-702 boxes were logged under 'Columbine Cold Storage' instead — a receiving-point mislabel. Separately, Cesar Ramos shows 3,390 pieces there with no Famous match anywhere that date — unexplained."],
+    ["Alondra — still unresolved", "Continues to have zero Picktrace entries on block 408-5,6,11 across this period, consistent with every prior report."],
+  ];
+  el.innerHTML = items.map(([label, text]) => `
+    <div class="finding">
+      <div class="flabel">${label}</div>
+      <div class="ftext">${text}</div>
+    </div>
+  `).join('');
+}
+
+function renderChart(){
+  const days = DATA.days;
+  const W = 1100, H = 220, padL = 60, padR = 20, padT = 20, padB = 30;
+  const maxVal = Math.max(...days.map(d => Math.max(d.famTotal, d.pickTotal)));
+  const n = days.length;
+  const xStep = (W - padL - padR) / (n - 1);
+  const yScale = v => padT + (H - padT - padB) * (1 - v / maxVal);
+  const famPoints = days.map((d,i) => `${padL + i*xStep},${yScale(d.famTotal)}`).join(' ');
+  const pickPoints = days.map((d,i) => `${padL + i*xStep},${yScale(d.pickTotal)}`).join(' ');
+
+  const gridLines = [0, 0.25, 0.5, 0.75, 1].map(f => {
+    const y = padT + (H - padT - padB) * (1 - f);
+    const val = Math.round(maxVal * f);
+    return `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#E6DBC5" stroke-width="1"/>
+            <text x="${padL-8}" y="${y+4}" font-size="10" text-anchor="end">${val.toLocaleString('en-US')}</text>`;
+  }).join('');
+
+  const xLabels = days.map((d,i) => `<text x="${padL+i*xStep}" y="${H-10}" font-size="10" text-anchor="middle">${shortDate(d.date)}</text>`).join('');
+
+  const svg = `
+    <svg class="chart" width="100%" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+      ${gridLines}
+      <polyline points="${famPoints}" fill="none" stroke="var(--green-deep-soft)" stroke-width="2.5"/>
+      <polyline points="${pickPoints}" fill="none" stroke="var(--wine-soft)" stroke-width="2.5"/>
+      ${days.map((d,i) => `<circle cx="${padL+i*xStep}" cy="${yScale(d.famTotal)}" r="3" fill="var(--green-deep-soft)"/>`).join('')}
+      ${days.map((d,i) => `<circle cx="${padL+i*xStep}" cy="${yScale(d.pickTotal)}" r="3" fill="var(--wine-soft)"/>`).join('')}
+      ${xLabels}
+    </svg>
+  `;
+  document.getElementById('chartWrap').innerHTML = svg;
+}
+
 let state = { search:'', filter:'All', expanded:new Set() };
 
 function rowMatchesSearch(row, term){
   if (!term) return true;
-  const hay = [row.famCrew, row.pickCrew, row.famLabel, row.pickLabel].filter(Boolean).join(' ').toLowerCase();
+  const hay = [row.famCrew, row.pickCrew].filter(Boolean).join(' ').toLowerCase();
   return hay.includes(term.toLowerCase());
 }
 
@@ -240,7 +308,6 @@ function renderRanchList(){
   const empty = document.getElementById('emptyState');
   const term = state.search.trim();
 
-  // filter rows within each ranch by search + status; keep ranch if it has >=1 matching row
   let ranches = DATA.ranches.map(r => {
     let rows = r.rows;
     if (term) rows = rows.filter(row => rowMatchesSearch(row, term));
@@ -272,11 +339,8 @@ function renderRanchList(){
 
     const bodyRows = r.filteredRows.map(row => `
       <tr>
-        <td>
-          ${row.famLabel || '<span class="muted">—</span>'}
-          ${row.locGroup && row.locGroup.includes('split ticket') ? '' : ''}
-        </td>
-        <td>${row.pickLabel || '<span class="muted">—</span>'}</td>
+        <td>${shortDate(row.date)}</td>
+        <td>${row.locGroup}</td>
         <td>${row.famCrew || '<span class="muted">—</span>'}</td>
         <td>${row.pickCrew || '<span class="muted">—</span>'}</td>
         <td class="num">${fmt(row.famVal)}</td>
@@ -310,11 +374,7 @@ function renderRanchList(){
             ${bodyRows ? `
             <table class="loc-table">
               <thead>
-                <tr>
-                  <th>Location (Famous)</th><th>Location (Picktrace)</th>
-                  <th>Famous Crew(s)</th><th>Picktrace Crew(s)</th>
-                  <th>Famous</th><th>Picktrace</th><th>Diff</th><th>Status</th>
-                </tr>
+                <tr><th>Date</th><th>Location</th><th>Famous Crew</th><th>Picktrace Crew</th><th>Famous</th><th>Picktrace</th><th>Diff</th><th>Status</th></tr>
               </thead>
               <tbody>${bodyRows}</tbody>
             </table>` : `<div class="no-rows">No entries match the current search or filter within this ranch.</div>`}
@@ -351,6 +411,8 @@ document.querySelectorAll('.chip').forEach(chip => {
 });
 
 renderKPIs();
+renderFindings();
+renderChart();
 renderRanchList();
 </script>
 

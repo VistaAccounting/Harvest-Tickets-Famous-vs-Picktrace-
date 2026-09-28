@@ -119,7 +119,7 @@
 <main>
   <section class="block">
     <div class="block-head">
-      <label class="flag-toggle"><input type="checkbox" id="onlyFlaggedToggle" checked> Only show flagged rows (location mismatch, discrepancy, or one-sided)</label>
+      <label class="flag-toggle"><input type="checkbox" id="onlyFlaggedToggle" checked> Only show flagged rows (location mismatch, variance, discrepancy, or one-sided)</label>
       <div class="hint" id="fullCompCountHint"></div>
     </div>
     <div class="comp-card">
@@ -251,7 +251,7 @@ function renderFullComparison(){
     const bucket = m === null ? 'na' : m ? 'match' : 'mismatch';
     if (headerFilters.locMatch !== 'All' && bucket !== headerFilters.locMatch) return false;
     if (onlyFlagged) {
-      const flagged = bucket === 'mismatch' || ['Discrepancy','Only in Famous','Only in Picktrace'].includes(it.status);
+      const flagged = bucket === 'mismatch' || ['Discrepancy','Minor Variance','Only in Famous','Only in Picktrace'].includes(it.status);
       if (!flagged) return false;
     }
     return true;
